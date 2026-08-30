@@ -10,7 +10,7 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      
     ],
     client: {
       jasmine: {
@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/portal-gio-dev-web'),
+      dir: require('path').join(__dirname, './coverage/portalAzulcode'),
       subdir: '.',
       reporters: [
         { type: 'html' },
