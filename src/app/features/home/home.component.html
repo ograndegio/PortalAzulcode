@@ -1,0 +1,61 @@
+<main>
+  <section class="hero-section">
+    <div class="hero container">
+    <div class="hero-content">
+      <p class="eyebrow">Software House</p>
+      <h1>Inovação em cada linha de <span>código.</span></h1>
+      <p>{{ company.mission }}</p>
+      <div class="hero-actions">
+        <a routerLink="/projetos" class="cta">Ver todos os projetos</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h2>Arquitetura orientada a resultados</h2>
+      <ul>
+        <li>APIs e Integrações</li>
+        <li>Cloud e Containers</li>
+        <li>Mensageria e Eventos</li>
+        <li>Escalabilidade e Observabilidade</li>
+      </ul>
+    </div>
+    </div>
+  </section>
+
+  <section class="tech-section section-space">
+    <div class="container">
+    <h2>Tecnologias</h2>
+    <div class="tech-groups" *ngIf="orderedTechnologyGroups$ | async as groups">
+      <article class="tech-group" *ngFor="let item of groups; trackBy: trackByCategory">
+        <h3>{{ item.category }}</h3>
+        <div class="tech-grid">
+          <div class="tech-card" *ngFor="let tech of item.items">
+            <img [src]="tech.logo" [alt]="tech.name" loading="lazy" />
+            <h4>{{ tech.name }}</h4>
+            <p>{{ tech.description }}</p>
+          </div>
+        </div>
+      </article>
+    </div>
+    </div>
+  </section>
+
+  <section class="projects-section section-space">
+    <div class="container">
+    <div class="section-header">
+      <h2>Projetos em destaque</h2>
+      <a routerLink="/projetos">Ver todos os projetos</a>
+    </div>
+    <br />
+    <div class="projects-grid">
+      <article class="project-card" *ngFor="let project of featuredProjects$ | async">
+        <img [src]="project.image" [alt]="project.name" loading="lazy" />
+        <div class="project-content">
+          <h2>{{ project.name }}</h2>
+          <p>{{ project.description }}</p>
+          <a [href]="project.url" target="_blank" rel="noopener noreferrer">Conhecer Projeto</a>
+        </div>
+      </article>
+    </div>
+    </div>
+  </section>
+</main>

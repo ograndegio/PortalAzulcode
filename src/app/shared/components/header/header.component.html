@@ -1,0 +1,22 @@
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a routerLink="/" class="brand" aria-label="AZULCODE Home">
+      <img src="assets/images/corp/logo.png" alt="AZULCODE Logo" width="40" height="40" />
+      <span class="brand-text">AZULCODE</span>
+    </a>
+
+    <button class="menu-toggle" type="button" (click)="toggleMenu()" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="menu" [class.is-open]="menuOpen" aria-label="Menu principal">
+      <a *ngFor="let item of menuItems$ | async"
+         [routerLink]="item.route"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+         (click)="closeMenu()">
+         {{ item.label }}
+      </a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,21 @@
+<main class="container section-space">
+  <h1>Contato</h1>
+  <p>Vamos conversar sobre seu próximo produto digital.</p>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <label for="name">Nome</label>
+    <input id="name" type="text" formControlName="name" />
+    <small *ngIf="isInvalid('name')">Informe seu nome.</small>
+
+    <label for="email">E-mail</label>
+    <input id="email" type="email" formControlName="email" />
+    <small *ngIf="isInvalid('email')">Informe um e-mail válido.</small>
+
+    <label for="message">Mensagem</label>
+    <textarea id="message" rows="5" formControlName="message"></textarea>
+    <small *ngIf="isInvalid('message')">A mensagem é obrigatória.</small>
+
+    <button type="submit">Enviar mensagem</button>
+    <p class="success" *ngIf="sent">Mensagem enviada com sucesso.</p>
+  </form>
+</main>

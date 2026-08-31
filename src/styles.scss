@@ -1,265 +1,65 @@
-$color_1: white;
-$color_2: #ffcb39;
-$color_3: #fff;
-$font-family_1: 'Dosis', sans-serif;
-$background-color_1: #FFCB39;
-$background-color_2: #fff;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
-@import "https://fonts.googleapis.com/css?family=Dosis:300,400,500";
-@keyframes rocket-movement {
-	100% {
-		transform: translate(1200px,-600px);
-	}
+:root {
+  --bg: #f8fafc;
+  --bg-alt: #f1f5f9;
+  --surface: #ffffff;
+  --line: #e2e8f0;
+  --line-strong: #cbd5e1;
+  --text: #0f172a;
+  --text-soft: #64748b;
+  --text-muted: #94a3b8;
+  --primary: #2563eb;
+  --primary-2: #1d4ed8;
+  --header-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+  --card-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
 }
-@keyframes spin-earth {
-	100% {
-		-webkit-transform: rotate(-360deg);
-		transform: rotate(-360deg);
-		transition: transform 20s;
-	}
+
+* {
+  box-sizing: border-box;
 }
-@keyframes move-astronaut {
-	100% {
-		-webkit-transform: translate(-160px, -160px);
-		transform: translate(-160px, -160px);
-	}
-}
-@keyframes rotate-astronaut {
-	100% {
-		-webkit-transform: rotate(-720deg);
-		transform: rotate(-720deg);
-	}
-}
-@keyframes glow-star {
-	40% {
-		-webkit-opacity: 0.3;
-		opacity: 0.3;
-	}
-	90%,100% {
-		-webkit-opacity: 1;
-		opacity: 1;
-		-webkit-transform: scale(1.2);
-		transform: scale(1.2);
-		border-radius: 999999px;
-	}
-}
-.spin-earth-on-hover {
-	transition: ease 200s !important;
-	transform: rotate(-3600deg) !important;
-}
-html {
-	margin: 0;
-	width: 100%;
-	height: 100%;
-	font-family: $font-family_1;
-	font-weight: 300;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
+
+html,
 body {
-	margin: 0;
-	width: 100%;
-	height: 100%;
-	font-family: $font-family_1;
-	font-weight: 300;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  margin: 0;
+  min-height: 100%;
 }
-.bg-purple {
-	background: url(./assets/bg_purple.png);
-	background-repeat: repeat-x;
-	background-size: cover;
-	background-position: left top;
-	height: 100%;
-	overflow: hidden;
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
 }
-.custom-navbar {
-	padding-top: 15px;
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0;
+  color: #111827;
+  line-height: 1.2;
+  margin: 0;
 }
-.brand-logo {
-	margin-left: 25px;
-	margin-top: 5px;
-	display: inline-block;
+
+.container {
+  width: min(1700px, 100%);
+  padding-left: clamp(1rem, 5vw, 5rem);
+  padding-right: clamp(1rem, 5vw, 5rem);
+  margin: 0 auto;
 }
-.navbar-links {
-	display: inline-block;
-	float: none;
-	margin-right: 15px;
-	text-transform: uppercase;
+
+a {
+  color: var(--primary);
+  transition: color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	align-items: center;
+
+img {
+  max-width: 100%;
+  display: block;
 }
-li {
-	float: left;
-	padding: 0px 15px;
-	a {
-		display: block;
-		color: $color_1;
-		text-align: center;
-		text-decoration: none;
-		letter-spacing: 2px;
-		font-size: 12px;
-		-webkit-transition: all 0.3s ease-in;
-		-moz-transition: all 0.3s ease-in;
-		-ms-transition: all 0.3s ease-in;
-		-o-transition: all 0.3s ease-in;
-		transition: all 0.3s ease-in;
-		&:hover {
-			color: $color_2;
-		}
-	}
-}
-.btn-request {
-	padding: 10px 25px;
-	border: 1px solid #FFCB39;
-	border-radius: 100px;
-	font-weight: 400;
-	&:hover {
-		background-color: $background-color_1;
-		color: $color_3;
-		transform: scale(1.05);
-		box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
-	}
-}
-.btn-go-home {
-	position: relative;
-	z-index: 200;
-	margin: 15px auto;
-	width: 100px;
-	padding: 10px 15px;
-	border: 1px solid #FFCB39;
-	border-radius: 100px;
-	font-weight: 400;
-	display: block;
-	color: $color_1;
-	text-align: center;
-	text-decoration: none;
-	letter-spacing: 2px;
-	font-size: 11px;
-	-webkit-transition: all 0.3s ease-in;
-	-moz-transition: all 0.3s ease-in;
-	-ms-transition: all 0.3s ease-in;
-	-o-transition: all 0.3s ease-in;
-	transition: all 0.3s ease-in;
-	&:hover {
-		background-color: $background-color_1;
-		color: $color_3;
-		transform: scale(1.05);
-		box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
-	}
-}
-.central-body {
-	padding: 17% 5% 10% 5%;
-	text-align: center;
-}
-.objects {
-	img {
-		z-index: 90;
-		pointer-events: none;
-	}
-}
-.object_rocket {
-	z-index: 95;
-	position: absolute;
-	transform: translateX(-50px);
-	top: 75%;
-	pointer-events: none;
-	animation: rocket-movement 200s linear infinite both running;
-}
-.object_earth {
-	position: absolute;
-	top: 20%;
-	left: 15%;
-	z-index: 90;
-}
-.object_moon {
-	position: absolute;
-	top: 12%;
-	left: 25%;
-}
-.object_astronaut {
-	animation: rotate-astronaut 200s infinite linear both alternate;
-}
-.box_astronaut {
-	z-index: 110 !important;
-	position: absolute;
-	top: 60%;
-	right: 20%;
-	will-change: transform;
-	animation: move-astronaut 50s infinite linear both alternate;
-}
-.image-404 {
-	position: relative;
-	z-index: 100;
-	pointer-events: none;
-}
-.stars {
-	background: url(./assets/overlay_stars.svg);
-	background-repeat: repeat;
-	background-size: contain;
-	background-position: left top;
-}
-.glowing_stars {
-	.star {
-		position: absolute;
-		border-radius: 100%;
-		background-color: $background-color_2;
-		width: 3px;
-		height: 3px;
-		opacity: 0.3;
-		will-change: opacity;
-		&:nth-child(1) {
-			top: 80%;
-			left: 25%;
-			animation: glow-star 2s infinite ease-in-out alternate 1s;
-		}
-		&:nth-child(2) {
-			top: 20%;
-			left: 40%;
-			animation: glow-star 2s infinite ease-in-out alternate 3s;
-		}
-		&:nth-child(3) {
-			top: 25%;
-			left: 25%;
-			animation: glow-star 2s infinite ease-in-out alternate 5s;
-		}
-		&:nth-child(4) {
-			top: 75%;
-			left: 80%;
-			animation: glow-star 2s infinite ease-in-out alternate 7s;
-		}
-		&:nth-child(5) {
-			top: 90%;
-			left: 50%;
-			animation: glow-star 2s infinite ease-in-out alternate 9s;
-		}
-	}
-}
-@media only screen and (max-width: 600px) {
-	.navbar-links {
-		display: none;
-	}
-	.custom-navbar {
-		text-align: center;
-	}
-	.brand-logo {
-		img {
-			width: 120px;
-		}
-	}
-	.box_astronaut {
-		top: 70%;
-	}
-	.central-body {
-		padding-top: 25%;
-	}
+
+main {
+  display: block;
 }
