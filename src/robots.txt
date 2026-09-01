@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://azulcode.com.br/sitemap.xml
